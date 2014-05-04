@@ -58,6 +58,7 @@ const char* LowerFaceAction(EmoStateHandle);
     Firebase* f = [[Firebase alloc] initWithUrl:url];
     NSString* url2 = @"https://neurogaming.firebaseio.com/rope/";
     Firebase* rope = [[Firebase alloc] initWithUrl:url2];
+    [rope setValue: @0];
 
     // Firebase* newPushRef = [listRef childByAutoId];
 
@@ -145,7 +146,6 @@ const char* LowerFaceAction(EmoStateHandle);
                         [rope setValue: ropeForce];
                     }
                 }
-                
             }
             j =  j + 1;
         }
