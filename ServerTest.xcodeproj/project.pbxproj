@@ -7,11 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B2668F81915F3B0003180F9 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B2668F71915F3B0003180F9 /* Firebase.framework */; };
+		5B2668FA1915F862003180F9 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B2668F91915F862003180F9 /* libicucore.dylib */; };
+		5B2668FC1915F86C003180F9 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B2668FB1915F86C003180F9 /* libc++.dylib */; };
+		5B2668FE1915F876003180F9 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B2668FD1915F876003180F9 /* CFNetwork.framework */; };
+		5B2669001915F886003180F9 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B2668FF1915F886003180F9 /* Security.framework */; };
+		5B2669021915F893003180F9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B2669011915F893003180F9 /* SystemConfiguration.framework */; };
+		5B266919191604BE003180F9 /* libedk.1.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B266913191604BE003180F9 /* libedk.1.0.0.dylib */; };
+		5B26691A191604BE003180F9 /* libedk.1.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B266913191604BE003180F9 /* libedk.1.0.0.dylib */; };
+		5B26691B191604BE003180F9 /* libedk.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B266914191604BE003180F9 /* libedk.1.0.dylib */; };
+		5B26691C191604BE003180F9 /* libedk.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B266914191604BE003180F9 /* libedk.1.0.dylib */; };
+		5B26691D191604BE003180F9 /* libedk.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B266915191604BE003180F9 /* libedk.1.dylib */; };
+		5B26691E191604BE003180F9 /* libedk.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B266915191604BE003180F9 /* libedk.1.dylib */; };
+		5B26691F191604BE003180F9 /* libedk.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B266916191604BE003180F9 /* libedk.dylib */; };
+		5B266920191604BE003180F9 /* libedk.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B266916191604BE003180F9 /* libedk.dylib */; };
+		5B266921191604BE003180F9 /* libedk_ultils_mac.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B266917191604BE003180F9 /* libedk_ultils_mac.dylib */; };
+		5B266922191604BE003180F9 /* libedk_ultils_mac.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B266917191604BE003180F9 /* libedk_ultils_mac.dylib */; };
+		5B266923191604BE003180F9 /* libiomp5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B266918191604BE003180F9 /* libiomp5.dylib */; };
+		5B266924191604BE003180F9 /* libiomp5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B266918191604BE003180F9 /* libiomp5.dylib */; };
 		5BBE938F1915E0CE0014C51E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BBE938E1915E0CE0014C51E /* Cocoa.framework */; };
 		5BBE93991915E0CE0014C51E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5BBE93971915E0CE0014C51E /* InfoPlist.strings */; };
 		5BBE939B1915E0CE0014C51E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBE939A1915E0CE0014C51E /* main.m */; };
 		5BBE939F1915E0CE0014C51E /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 5BBE939D1915E0CE0014C51E /* Credits.rtf */; };
-		5BBE93A21915E0CE0014C51E /* pstAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBE93A11915E0CE0014C51E /* pstAppDelegate.m */; };
+		5BBE93A21915E0CE0014C51E /* pstAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5BBE93A11915E0CE0014C51E /* pstAppDelegate.mm */; };
 		5BBE93A51915E0CF0014C51E /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BBE93A31915E0CF0014C51E /* MainMenu.xib */; };
 		5BBE93A71915E0CF0014C51E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BBE93A61915E0CF0014C51E /* Images.xcassets */; };
 		5BBE93AE1915E0CF0014C51E /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BBE93AD1915E0CF0014C51E /* XCTest.framework */; };
@@ -31,6 +49,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5B2668F71915F3B0003180F9 /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Firebase.framework; path = ../../../../../Shared/Firebase/Frameworks/Firebase.framework; sourceTree = "<group>"; };
+		5B2668F91915F862003180F9 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		5B2668FB1915F86C003180F9 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		5B2668FD1915F876003180F9 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		5B2668FF1915F886003180F9 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		5B2669011915F893003180F9 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		5B266913191604BE003180F9 /* libedk.1.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libedk.1.0.0.dylib; sourceTree = "<group>"; };
+		5B266914191604BE003180F9 /* libedk.1.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libedk.1.0.dylib; sourceTree = "<group>"; };
+		5B266915191604BE003180F9 /* libedk.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libedk.1.dylib; sourceTree = "<group>"; };
+		5B266916191604BE003180F9 /* libedk.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libedk.dylib; sourceTree = "<group>"; };
+		5B266917191604BE003180F9 /* libedk_ultils_mac.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libedk_ultils_mac.dylib; sourceTree = "<group>"; };
+		5B266918191604BE003180F9 /* libiomp5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libiomp5.dylib; sourceTree = "<group>"; };
+		5B2669261916078D003180F9 /* edk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = edk.h; sourceTree = "<group>"; };
+		5B2669271916078D003180F9 /* edkErrorCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = edkErrorCode.h; sourceTree = "<group>"; };
+		5B2669281916078D003180F9 /* EmoStateDLL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmoStateDLL.h; sourceTree = "<group>"; };
 		5BBE938B1915E0CE0014C51E /* ServerTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ServerTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BBE938E1915E0CE0014C51E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		5BBE93911915E0CE0014C51E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -42,7 +75,7 @@
 		5BBE939C1915E0CE0014C51E /* ServerTest-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ServerTest-Prefix.pch"; sourceTree = "<group>"; };
 		5BBE939E1915E0CE0014C51E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		5BBE93A01915E0CE0014C51E /* pstAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pstAppDelegate.h; sourceTree = "<group>"; };
-		5BBE93A11915E0CE0014C51E /* pstAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = pstAppDelegate.m; sourceTree = "<group>"; };
+		5BBE93A11915E0CE0014C51E /* pstAppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = pstAppDelegate.mm; sourceTree = "<group>"; };
 		5BBE93A41915E0CF0014C51E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		5BBE93A61915E0CF0014C51E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5BBE93AC1915E0CF0014C51E /* ServerTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ServerTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -57,6 +90,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B26691D191604BE003180F9 /* libedk.1.dylib in Frameworks */,
+				5B266923191604BE003180F9 /* libiomp5.dylib in Frameworks */,
+				5B26691B191604BE003180F9 /* libedk.1.0.dylib in Frameworks */,
+				5B26691F191604BE003180F9 /* libedk.dylib in Frameworks */,
+				5B2669021915F893003180F9 /* SystemConfiguration.framework in Frameworks */,
+				5B266921191604BE003180F9 /* libedk_ultils_mac.dylib in Frameworks */,
+				5B2669001915F886003180F9 /* Security.framework in Frameworks */,
+				5B266919191604BE003180F9 /* libedk.1.0.0.dylib in Frameworks */,
+				5B2668FE1915F876003180F9 /* CFNetwork.framework in Frameworks */,
+				5B2668FC1915F86C003180F9 /* libc++.dylib in Frameworks */,
+				5B2668FA1915F862003180F9 /* libicucore.dylib in Frameworks */,
+				5B2668F81915F3B0003180F9 /* Firebase.framework in Frameworks */,
 				5BBE938F1915E0CE0014C51E /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -65,14 +110,43 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B26691E191604BE003180F9 /* libedk.1.dylib in Frameworks */,
+				5B266924191604BE003180F9 /* libiomp5.dylib in Frameworks */,
+				5B266922191604BE003180F9 /* libedk_ultils_mac.dylib in Frameworks */,
 				5BBE93AF1915E0CF0014C51E /* Cocoa.framework in Frameworks */,
 				5BBE93AE1915E0CF0014C51E /* XCTest.framework in Frameworks */,
+				5B26691C191604BE003180F9 /* libedk.1.0.dylib in Frameworks */,
+				5B26691A191604BE003180F9 /* libedk.1.0.0.dylib in Frameworks */,
+				5B266920191604BE003180F9 /* libedk.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5B266912191604BE003180F9 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				5B266913191604BE003180F9 /* libedk.1.0.0.dylib */,
+				5B266914191604BE003180F9 /* libedk.1.0.dylib */,
+				5B266915191604BE003180F9 /* libedk.1.dylib */,
+				5B266916191604BE003180F9 /* libedk.dylib */,
+				5B266917191604BE003180F9 /* libedk_ultils_mac.dylib */,
+				5B266918191604BE003180F9 /* libiomp5.dylib */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		5B2669251916078D003180F9 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				5B2669261916078D003180F9 /* edk.h */,
+				5B2669271916078D003180F9 /* edkErrorCode.h */,
+				5B2669281916078D003180F9 /* EmoStateDLL.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
 		5BBE93821915E0CE0014C51E = {
 			isa = PBXGroup;
 			children = (
@@ -80,6 +154,8 @@
 				5BBE93B21915E0CF0014C51E /* ServerTestTests */,
 				5BBE938D1915E0CE0014C51E /* Frameworks */,
 				5BBE938C1915E0CE0014C51E /* Products */,
+				5B2669251916078D003180F9 /* include */,
+				5B266912191604BE003180F9 /* lib */,
 			);
 			sourceTree = "<group>";
 		};
@@ -95,6 +171,12 @@
 		5BBE938D1915E0CE0014C51E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5B2669011915F893003180F9 /* SystemConfiguration.framework */,
+				5B2668FF1915F886003180F9 /* Security.framework */,
+				5B2668FD1915F876003180F9 /* CFNetwork.framework */,
+				5B2668FB1915F86C003180F9 /* libc++.dylib */,
+				5B2668F91915F862003180F9 /* libicucore.dylib */,
+				5B2668F71915F3B0003180F9 /* Firebase.framework */,
 				5BBE938E1915E0CE0014C51E /* Cocoa.framework */,
 				5BBE93AD1915E0CF0014C51E /* XCTest.framework */,
 				5BBE93901915E0CE0014C51E /* Other Frameworks */,
@@ -116,7 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				5BBE93A01915E0CE0014C51E /* pstAppDelegate.h */,
-				5BBE93A11915E0CE0014C51E /* pstAppDelegate.m */,
+				5BBE93A11915E0CE0014C51E /* pstAppDelegate.mm */,
 				5BBE93A31915E0CF0014C51E /* MainMenu.xib */,
 				5BBE93A61915E0CF0014C51E /* Images.xcassets */,
 				5BBE93951915E0CE0014C51E /* Supporting Files */,
@@ -253,7 +335,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BBE93A21915E0CE0014C51E /* pstAppDelegate.m in Sources */,
+				5BBE93A21915E0CE0014C51E /* pstAppDelegate.mm in Sources */,
 				5BBE939B1915E0CE0014C51E /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -346,6 +428,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -378,6 +461,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -387,9 +471,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/Shared/Firebase/Frameworks,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ServerTest/ServerTest-Prefix.pch";
 				INFOPLIST_FILE = "ServerTest/ServerTest-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/lib",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -400,9 +492,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/Shared/Firebase/Frameworks,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ServerTest/ServerTest-Prefix.pch";
 				INFOPLIST_FILE = "ServerTest/ServerTest-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/lib",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -424,6 +524,10 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "ServerTestTests/ServerTestTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/lib",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -442,6 +546,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ServerTest/ServerTest-Prefix.pch";
 				INFOPLIST_FILE = "ServerTestTests/ServerTestTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/lib",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -467,6 +575,7 @@
 				5BBE93BE1915E0CF0014C51E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5BBE93BF1915E0CF0014C51E /* Build configuration list for PBXNativeTarget "ServerTestTests" */ = {
 			isa = XCConfigurationList;
@@ -475,6 +584,7 @@
 				5BBE93C11915E0CF0014C51E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
