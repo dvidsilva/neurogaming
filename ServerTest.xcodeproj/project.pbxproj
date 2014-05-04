@@ -36,6 +36,7 @@
 		5BBE93AF1915E0CF0014C51E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BBE938E1915E0CE0014C51E /* Cocoa.framework */; };
 		5BBE93B71915E0CF0014C51E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5BBE93B51915E0CF0014C51E /* InfoPlist.strings */; };
 		5BBE93B91915E0CF0014C51E /* ServerTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BBE93B81915E0CF0014C51E /* ServerTestTests.m */; };
+		5BDB60AB1916E04200EA77D9 /* pstAppDelegate in Resources */ = {isa = PBXBuildFile; fileRef = 5BDB60AA1916E04200EA77D9 /* pstAppDelegate */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		5BBE93B41915E0CF0014C51E /* ServerTestTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ServerTestTests-Info.plist"; sourceTree = "<group>"; };
 		5BBE93B61915E0CF0014C51E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5BBE93B81915E0CF0014C51E /* ServerTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ServerTestTests.m; sourceTree = "<group>"; };
+		5BDB60AA1916E04200EA77D9 /* pstAppDelegate */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pstAppDelegate; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +201,7 @@
 			children = (
 				5BBE93A01915E0CE0014C51E /* pstAppDelegate.h */,
 				5BBE93A11915E0CE0014C51E /* pstAppDelegate.mm */,
+				5BDB60AA1916E04200EA77D9 /* pstAppDelegate */,
 				5BBE93A31915E0CF0014C51E /* MainMenu.xib */,
 				5BBE93A61915E0CF0014C51E /* Images.xcassets */,
 				5BBE93951915E0CE0014C51E /* Supporting Files */,
@@ -313,6 +316,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BDB60AB1916E04200EA77D9 /* pstAppDelegate in Resources */,
 				5BBE93991915E0CE0014C51E /* InfoPlist.strings in Resources */,
 				5BBE93A71915E0CF0014C51E /* Images.xcassets in Resources */,
 				5BBE939F1915E0CE0014C51E /* Credits.rtf in Resources */,

@@ -81,7 +81,8 @@ const char* LowerFaceAction(EmoStateHandle);
         [f observeEventType:FEventTypeChildAdded  withBlock:^(FDataSnapshot *snapshot){
             NSLog(@"CHILD WAS ADDED!! ");
         }];
-        
+        [f setValue: @"MAGIA " ];
+        return;
         [[f childByAppendingPath:@"connected"] setValue:@"true"];
         [[f childByAppendingPath:@"events"] setValue:@"POLLITO"];
         
