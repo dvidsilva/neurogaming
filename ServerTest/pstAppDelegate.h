@@ -11,5 +11,6 @@
 @interface pstAppDelegate : NSObject <NSApplicationDelegate>
 
 @property (assign) IBOutlet NSWindow *window;
+@property IBOutlet NSSlider *slider; 
 
 @end

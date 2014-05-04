@@ -56,6 +56,9 @@ const char* LowerFaceAction(EmoStateHandle);
     
     NSString* url = @"https://neurogaming.firebaseio.com/epoc/0/";
     Firebase* f = [[Firebase alloc] initWithUrl:url];
+    NSString* url2 = @"https://neurogaming.firebaseio.com/rope/";
+    Firebase* rope = [[Firebase alloc] initWithUrl:url2];
+
     // Firebase* newPushRef = [listRef childByAutoId];
 
     unsigned int userID = 0;
@@ -71,16 +74,33 @@ const char* LowerFaceAction(EmoStateHandle);
         NSLog(@"Cannot connect to the EmoEngine !");
     }
     if(connected){
-        
-        
-        
-        
+        NSLog(@"connected");
+     
         [f observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
             NSLog(@"%@ -> %@", snapshot.name, snapshot.value);
         }];
         [f observeEventType:FEventTypeChildAdded  withBlock:^(FDataSnapshot *snapshot){
             NSLog(@"CHILD WAS ADDED!! ");
         }];
+        
+        
+        [rope observeEventType:FEventTypeValue  withBlock:^(FDataSnapshot *snapshot){
+            
+            NSLog(@"ROPE CHANGED!!");
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                NSLog(@"value: %@",snapshot);
+                if ([snapshot.name isEqualToString:@"rope"])
+                    
+                {
+                    double value = [snapshot.value doubleValue];
+                    NSLog(@"value:%f",value);
+                    if (value && value >= -100 & value <= 100)
+                        [self.slider setDoubleValue:value];
+                }
+            });
+        }];
+    
         
         [[f childByAppendingPath:@"connected"] setValue:@"true"];
         [[f childByAppendingPath:@"events"] setValue:@"POLLITO"];
@@ -91,20 +111,14 @@ const char* LowerFaceAction(EmoStateHandle);
         NSString *_state = @"";
         int _strenght = 0;
         int _smileForce = 0;
+        NSNumber *ropeForce = 0;
         
         while(true){
-
-            
-
             state = EE_EngineGetNextEvent(eEvent);
             if(state == EDK_OK)
             {
-            
                 EE_Event_t eventType = EE_EmoEngineEventGetType(eEvent);
                 EE_EmoEngineEventGetUserId(eEvent, &userID);
-                
-
-                
                 if(eventType == EE_EmoStateUpdated)
                 {
                     EE_EmoEngineEventGetEmoState(eEvent, eState);
@@ -117,17 +131,19 @@ const char* LowerFaceAction(EmoStateHandle);
                     {
                         _state = @"yes blink";
                         _strenght += 1;
-                        [[f childByAppendingPath:@"events"] setValue: [NSString stringWithFormat: @"  %@, %d " , _state , _strenght  ] ];
+                        // [[f childByAppendingPath:@"events"] setValue: [NSString stringWithFormat: @"  %@, %d " , _state , _strenght  ] ];
                     }
 
                     const char* lowerFaceAction = LowerFaceAction( eState );
                     if ( "Smile" ==  lowerFaceAction  ){ // lowerFaceAction == "Smile"
                         _smileForce += 1;
-                        [[f childByAppendingPath:@"smile"] setValue: [NSString stringWithFormat:@" TRUE, %d", _smileForce]];
+                        int temp = [ropeForce intValue];
+                        temp += 1;
+                        ropeForce = [NSNumber numberWithInt:temp];
+                        NSLog(@" %@", ropeForce);
+                        //[[f childByAppendingPath:@"smile"] setValue: [NSString stringWithFormat:@" TRUE, %d", _smileForce]];
+                        [rope setValue: ropeForce];
                     }
-                    const float timestart = ES_GetTimeFromStart(eState);
-                    NSLog(@"%f",timestart);
-                    
                 }
                 
             }
@@ -159,9 +175,11 @@ const char* LowerFaceAction(EmoStateHandle eState)
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    [self tryToReadTheThingFromTheEpoc];
-    
-    //[self tryToSaveDataToFirebase : 10 ];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+        
+        [self tryToReadTheThingFromTheEpoc];
+        
+    });
 }
 
 @end
