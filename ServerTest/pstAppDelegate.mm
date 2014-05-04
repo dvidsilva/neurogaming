@@ -21,6 +21,10 @@ int state = 0;
 
 const char* LowerFaceAction(EmoStateHandle);
 
+NSNumber *ropeForce = 0;
+NSString *myusername = @"david";
+int multiplier = -1;
+const char* actionMagicalThing = "Push"; // Smile, Blink, Push
 
 
 @implementation pstAppDelegate
@@ -58,6 +62,13 @@ const char* LowerFaceAction(EmoStateHandle);
     Firebase* f = [[Firebase alloc] initWithUrl:url];
     NSString* url2 = @"https://neurogaming.firebaseio.com/rope/";
     Firebase* rope = [[Firebase alloc] initWithUrl:url2];
+
+    
+    NSString* url3 = @"https://neurogaming.firebaseio.com/users/";
+    Firebase* user = [[Firebase alloc] initWithUrl:url3];
+
+    
+    
     [rope setValue: @0];
 
     // Firebase* newPushRef = [listRef childByAutoId];
@@ -68,8 +79,11 @@ const char* LowerFaceAction(EmoStateHandle);
     bool connected = FALSE;
 
     if(EE_EngineConnect() == EDK_OK)
+    {
         connected = TRUE;
-    else
+        [[user childByAppendingPath:@"david" ] setValue:@"true" ];
+    }
+        else
     {
         connected = FALSE;
         NSLog(@"Cannot connect to the EmoEngine !");
@@ -84,7 +98,7 @@ const char* LowerFaceAction(EmoStateHandle);
             NSLog(@"CHILD WAS ADDED!! ");
         }];
         
-        
+
         [rope observeEventType:FEventTypeValue  withBlock:^(FDataSnapshot *snapshot){
             
             NSLog(@"ROPE CHANGED!!");
@@ -98,6 +112,7 @@ const char* LowerFaceAction(EmoStateHandle);
                     NSLog(@"value:%f",value);
                     if (value && value >= -100 & value <= 100)
                         [self.slider setDoubleValue:value];
+                    ropeForce = [NSNumber numberWithDouble:value];
                 }
             });
         }];
@@ -112,7 +127,6 @@ const char* LowerFaceAction(EmoStateHandle);
         NSString *_state = @"";
         int _strenght = 0;
         int _smileForce = 0;
-        NSNumber *ropeForce = 0;
         
         while(true){
             state = EE_EngineGetNextEvent(eEvent);
@@ -124,27 +138,42 @@ const char* LowerFaceAction(EmoStateHandle);
                 {
                     EE_EmoEngineEventGetEmoState(eEvent, eState);
 
-                    if(ES_ExpressivIsRightWink(eState) == 0)
-                    {
-                        _state = @"no blink";
+                    if("Blink"== actionMagicalThing){
+                        if(ES_ExpressivIsRightWink(eState) == 0)
+                        {
+                            _state = @"no blink";
+                        }
+                        else
+                        {
+                            _strenght += 8;
+                            int temp = [ropeForce intValue];
+                            temp += (1 * multiplier);
+                            NSNumber *set = [NSNumber numberWithInt:temp];
+                            NSLog(@" %@", ropeForce);
+                            [rope setValue: set];
+                        }
                     }
-                    else
-                    {
-                        _state = @"yes blink";
-                        _strenght += 1;
-                        // [[f childByAppendingPath:@"events"] setValue: [NSString stringWithFormat: @"  %@, %d " , _state , _strenght  ] ];
-                    }
-
                     const char* lowerFaceAction = LowerFaceAction( eState );
-                    if ( "Smile" ==  lowerFaceAction  ){ // lowerFaceAction == "Smile"
+                    const char* something = CognitivSuite(eState);
+                    if ( something ==  actionMagicalThing  ){
                         _smileForce += 1;
+
                         int temp = [ropeForce intValue];
-                        temp += 1;
-                        ropeForce = [NSNumber numberWithInt:temp];
+                        temp += (1 * multiplier);
+                        NSNumber *set = [NSNumber numberWithInt:temp];
                         NSLog(@" %@", ropeForce);
-                        //[[f childByAppendingPath:@"smile"] setValue: [NSString stringWithFormat:@" TRUE, %d", _smileForce]];
-                        [rope setValue: ropeForce];
+                        [rope setValue: set];
                     }
+                    
+                    if (lowerFaceAction == actionMagicalThing){
+                        int temp = [ropeForce intValue];
+                        temp += (1 * multiplier);
+                        NSNumber *set = [NSNumber numberWithInt:temp];
+                        NSLog(@" %@", ropeForce);
+                        [rope setValue: set];
+                    }
+                    
+                    
                 }
             }
             j =  j + 1;
@@ -172,6 +201,44 @@ const char* LowerFaceAction(EmoStateHandle eState)
 		return "Laugh";
 	return "-";
 }
+
+
+
+const char* CognitivSuite(EmoStateHandle eState)
+{
+	EE_CognitivAction_t cognitivAction = ES_CognitivGetCurrentAction(eState);
+	if( cognitivAction == COG_NEUTRAL)
+		return "Neutral";
+	else if(cognitivAction == COG_PUSH)
+		return "Push";
+	else if( cognitivAction == COG_PULL)
+		return "Pull";
+	else if(cognitivAction == COG_LIFT)
+		return "Lift";
+	else if( cognitivAction == COG_DROP)
+		return "Drop";
+	else if( cognitivAction == COG_LEFT)
+		return "Left";
+	else if(cognitivAction == COG_RIGHT)
+		return "Right";
+	else if( cognitivAction == COG_ROTATE_LEFT)
+		return "Rotate Left";
+	else if( cognitivAction == COG_ROTATE_RIGHT)
+		return "Rotate Right";
+	else if(cognitivAction == COG_ROTATE_CLOCKWISE)
+		return "Rotate_ClockWise";
+	else if(cognitivAction==COG_ROTATE_COUNTER_CLOCKWISE)
+		return "Rotate_Counter_ClockWise";
+	else if( cognitivAction == COG_ROTATE_FORWARDS)
+		return "Rotate_Forwards";
+	else if(cognitivAction == COG_ROTATE_REVERSE)
+		return "Rotate_Reverse";
+	else if( cognitivAction == COG_DISAPPEAR)
+		return "Disappear";
+	
+	return "-";
+}
+
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
