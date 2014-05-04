@@ -23,8 +23,8 @@ const char* LowerFaceAction(EmoStateHandle);
 
 NSNumber *ropeForce = 0;
 NSString *myusername = @"david";
-int multiplier = -1;
-const char* actionMagicalThing = "Push"; // Smile, Blink, Push
+int multiplier = -8;
+NSString *actionMagicalThing = @"Smile"; // Smile, Blink, Push
 
 
 @implementation pstAppDelegate
@@ -138,7 +138,7 @@ const char* actionMagicalThing = "Push"; // Smile, Blink, Push
                 {
                     EE_EmoEngineEventGetEmoState(eEvent, eState);
 
-                    if("Blink"== actionMagicalThing){
+                    if([actionMagicalThing isEqualToString:@"Blink"]){
                         if(ES_ExpressivIsRightWink(eState) == 0)
                         {
                             _state = @"no blink";
@@ -155,7 +155,7 @@ const char* actionMagicalThing = "Push"; // Smile, Blink, Push
                     }
                     const char* lowerFaceAction = LowerFaceAction( eState );
                     const char* something = CognitivSuite(eState);
-                    if ( something ==  actionMagicalThing  ){
+                    if ([actionMagicalThing isEqualToString:@"Smile"] ){
                         _smileForce += 1;
 
                         int temp = [ropeForce intValue];
@@ -165,7 +165,7 @@ const char* actionMagicalThing = "Push"; // Smile, Blink, Push
                         [rope setValue: set];
                     }
                     
-                    if (lowerFaceAction == actionMagicalThing){
+                    if ([actionMagicalThing isEqualToString:@"Push"]){
                         int temp = [ropeForce intValue];
                         temp += (1 * multiplier);
                         NSNumber *set = [NSNumber numberWithInt:temp];
@@ -182,9 +182,17 @@ const char* actionMagicalThing = "Push"; // Smile, Blink, Push
     
     EE_EmoStateFree(eState);
     EE_EmoEngineEventFree(eEvent);
-
+    
 }
 
+-(void)controlTextDidEndEditing:(NSNotification *)obj
+{
+    if ( [[[obj userInfo] objectForKey:@"NSTextMovement"] intValue] == NSReturnTextMovement )
+    {
+        actionMagicalThing = _action.stringValue;
+        NSLog(@"Return was pressed!");
+    }
+}
 
 const char* LowerFaceAction(EmoStateHandle eState)
 {
