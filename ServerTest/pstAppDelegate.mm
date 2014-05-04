@@ -159,10 +159,10 @@ NSString *actionMagicalThing = @"Smile"; // Smile, Blink, Push
                     const char* something = CognitivSuite(eState);
                     if ([actionMagicalThing isEqualToString:@"Smile"] && lowerFaceAction == "Smile"){
                         int temp = [ropeForce intValue];
-                        temp += (1 * multiplier);
-                        NSNumber *set = [NSNumber numberWithInt:temp];
-                        NSLog(@" %@", ropeForce);
-                        if ([set intValue] <= 100 || [set intValue]>= -100  ){
+                        if (temp <= 100  &&  temp >= -100 ){
+                            temp += multiplier;
+                            NSNumber *set = [NSNumber numberWithInt:temp];
+                            NSLog(@" %@", ropeForce);
                             [rope setValue: set];
                         }
                     }
@@ -173,7 +173,8 @@ NSString *actionMagicalThing = @"Smile"; // Smile, Blink, Push
                         NSLog(@" %@", ropeForce);
                         if ([set intValue] <= 100 || [set intValue]>= -100  ){
                             [rope setValue: set];
-                        }                    }
+                        }
+                    }
                     
                     
                 }
