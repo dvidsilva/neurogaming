@@ -150,28 +150,30 @@ NSString *actionMagicalThing = @"Smile"; // Smile, Blink, Push
                             temp += (1 * multiplier);
                             NSNumber *set = [NSNumber numberWithInt:temp];
                             NSLog(@" %@", ropeForce);
-                            [rope setValue: set];
+                            if ([set intValue] <= 100 || [set intValue]>= -100  ){
+                                [rope setValue: set];
+                            }
                         }
                     }
                     const char* lowerFaceAction = LowerFaceAction( eState );
                     const char* something = CognitivSuite(eState);
-                    if ([actionMagicalThing isEqualToString:@"Smile"] ){
-                        _smileForce += 1;
-
+                    if ([actionMagicalThing isEqualToString:@"Smile"] && lowerFaceAction == "Smile"){
                         int temp = [ropeForce intValue];
                         temp += (1 * multiplier);
                         NSNumber *set = [NSNumber numberWithInt:temp];
                         NSLog(@" %@", ropeForce);
-                        [rope setValue: set];
+                        if ([set intValue] <= 100 || [set intValue]>= -100  ){
+                            [rope setValue: set];
+                        }
                     }
-                    
-                    if ([actionMagicalThing isEqualToString:@"Push"]){
+                    if ([actionMagicalThing isEqualToString:@"Push"] && something == "Push"){
                         int temp = [ropeForce intValue];
                         temp += (1 * multiplier);
                         NSNumber *set = [NSNumber numberWithInt:temp];
                         NSLog(@" %@", ropeForce);
-                        [rope setValue: set];
-                    }
+                        if ([set intValue] <= 100 || [set intValue]>= -100  ){
+                            [rope setValue: set];
+                        }                    }
                     
                     
                 }
