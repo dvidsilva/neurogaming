@@ -19,8 +19,12 @@
 
 int state = 0;
 
+const char* LowerFaceAction(EmoStateHandle);
+
+
 
 @implementation pstAppDelegate
+
 
 
 - (void)tryToSaveDataToFirebase: (int)aNumber
@@ -41,11 +45,7 @@ int state = 0;
     }];
 
 
-//    int j = 0;
-//    while(j < aNumber){
-//        j = j + 1;
-//        NSLog(@"string %d", j);
-//    }
+
 }
 
 
@@ -80,6 +80,12 @@ int state = 0;
 //        }];
         
         int j  = 0;
+        
+        
+        NSString *_state = @"";
+        int _strenght = 0;
+        int _smileForce = 0;
+        
         while(true){
 
             state = EE_EngineGetNextEvent(eEvent);
@@ -88,12 +94,29 @@ int state = 0;
             
                 EE_Event_t eventType = EE_EmoEngineEventGetType(eEvent);
                 EE_EmoEngineEventGetUserId(eEvent, &userID);
+                
+
+                
                 if(eventType == EE_EmoStateUpdated)
                 {
                     EE_EmoEngineEventGetEmoState(eEvent, eState);
-                    
-                    // time from start
-                    [[f childByAppendingPath:@"events"] setValue:@"POllO"];
+
+                    if(ES_ExpressivIsRightWink(eState) == 0)
+                    {
+                        _state = @"no blink";
+                    }
+                    else
+                    {
+                        _state = @"yes blink";
+                        _strenght += 1;
+                        [[f childByAppendingPath:@"events"] setValue: [NSString stringWithFormat: @"  %@, %d " , _state , _strenght  ] ];
+                    }
+
+                    const char* lowerFaceAction = LowerFaceAction( eState );
+                    if ( "Smile" ==  lowerFaceAction  ){ // lowerFaceAction == "Smile"
+                        _smileForce += 1;
+                        [[f childByAppendingPath:@"smile"] setValue: [NSString stringWithFormat:@" TRUE, %d", _smileForce]];
+                    }
                     const float timestart = ES_GetTimeFromStart(eState);
                     NSLog(@"%f",timestart);
                     
@@ -109,6 +132,22 @@ int state = 0;
 
 }
 
+
+const char* LowerFaceAction(EmoStateHandle eState)
+{
+	EE_ExpressivAlgo_t lowerFaceAction = ES_ExpressivGetLowerFaceAction( eState );
+	if( lowerFaceAction == EXP_SMILE)
+		return "Smile";
+	else if( lowerFaceAction == EXP_CLENCH)
+		return "Clench";
+	else if( lowerFaceAction == EXP_SMIRK_LEFT)
+		return "Smirk left";
+	else if( lowerFaceAction == EXP_SMIRK_RIGHT)
+		return "Smirk right";
+	else if( lowerFaceAction == EXP_LAUGH )
+		return "Laugh";
+	return "-";
+}
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
