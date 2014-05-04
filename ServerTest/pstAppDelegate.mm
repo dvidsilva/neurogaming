@@ -24,7 +24,7 @@ const char* LowerFaceAction(EmoStateHandle);
 NSNumber *ropeForce = 0;
 NSString *myusername = @"david";
 int multiplier = -8;
-NSString *actionMagicalThing = @"Smile"; // Smile, Blink, Push
+NSString *actionMagicalThing = @"Blink"; // Smile, Blink, Push
 
 
 @implementation pstAppDelegate
@@ -145,12 +145,11 @@ NSString *actionMagicalThing = @"Smile"; // Smile, Blink, Push
                         }
                         else
                         {
-                            _strenght += 8;
                             int temp = [ropeForce intValue];
-                            temp += (1 * multiplier);
-                            NSNumber *set = [NSNumber numberWithInt:temp];
-                            NSLog(@" %@", ropeForce);
-                            if ([set intValue] <= 100 || [set intValue]>= -100  ){
+                            if (temp <= 100  &&  temp >= -100 ){
+                                temp += multiplier;
+                                NSNumber *set = [NSNumber numberWithInt:temp];
+                                NSLog(@" %@", ropeForce);
                                 [rope setValue: set];
                             }
                         }
